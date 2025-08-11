@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import bannerImage from "./imagenes/Banner.png";
+import image2 from "./imagenes/image2.jpg";
+import image1 from "./imagenes/image1.jpg";
 
 function Inicio() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -53,8 +55,39 @@ function Inicio() {
     borderRadius: "15px",
     marginTop: isMobile ? "20px" : "0",
   };
+    // Nuevo estilo para el segundo contenedor
+  const textContainer2Style = {
+    backgroundColor: "#333", // Un color diferente para distinguirlo
+    color: "white",
+    padding: "20px",
+    margin: "15px",
+    borderRadius: "15px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: isMobile ? "center" : "center",
+    textAlign: isMobile ? "center" : "center",
+    maxWidth: isMobile ? "90%" : "100%",
+    marginTop: isMobile ? "90px" : "0",
+  };
+const contenedor2 = {
+  display: "flex", // Habilita Flexbox para alinear elementos en fila
+  flexDirection: isMobile ? "column" : "row", // En móvil se apilan, en escritorio se ponen en fila
+  justifyContent: "center", // Centra las imágenes en el contenedor horizontalmente
+  alignItems: "center", // Centra las imágenes verticalmente
+  gap: "20px", // Añade un espacio de 20px entre las imágenes
+  margin: "20px 0", // Añade margen arriba y abajo para separarlo de otros elementos
+};
+
+// Estilos para las IMÁGENES INDIVIDUALES
+const image2Style = {
+  maxWidth: isMobile ? "90%" : "45%", // Cada imagen ocupa casi la mitad del ancho en escritorio
+  height: "auto",
+  borderRadius: "15px",
+};
 
   return (
+    <>
     <div style={containerStyle}>
       <div style={textContainerStyle}>
         <h1 style={{ fontSize: "3rem", margin: "0 0 10px 0" }}>
@@ -70,6 +103,15 @@ function Inicio() {
       </div>
       <img src={bannerImage} alt="imgan vintage" style={imageStyle} />
     </div>
+          <div style={textContainer2Style}>
+        <h2>Este es mi segundo contenedor</h2>
+        <p>Aquí puedes agregar más contenido, como texto, imágenes o otros componentes.</p>
+      </div>
+      <div Styel={contenedor2}>
+          <img src={image2} alt="imagen2" style={image2Style} />
+          <img src={image1} alt="imagen1" style={image2Style} />
+      </div>
+     </>
   );
 }
 
