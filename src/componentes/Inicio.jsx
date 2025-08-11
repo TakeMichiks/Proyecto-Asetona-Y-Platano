@@ -70,21 +70,29 @@ function Inicio() {
     maxWidth: isMobile ? "90%" : "100%",
     marginTop: isMobile ? "90px" : "0",
   };
-const contenedor2 = {
-  display: "flex", // Habilita Flexbox para alinear elementos en fila
-  flexDirection: isMobile ? "column" : "row", // En móvil se apilan, en escritorio se ponen en fila
-  justifyContent: "center", // Centra las imágenes en el contenedor horizontalmente
-  alignItems: "center", // Centra las imágenes verticalmente
-  gap: "20px", // Añade un espacio de 20px entre las imágenes
-  margin: "20px 0", // Añade margen arriba y abajo para separarlo de otros elementos
-};
+  const contenedor2 = {
+    display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+    margin: "20px 0",
+  };
 
-// Estilos para las IMÁGENES INDIVIDUALES
-const image2Style = {
-  maxWidth: isMobile ? "90%" : "45%", // Cada imagen ocupa casi la mitad del ancho en escritorio
-  height: "auto",
-  borderRadius: "15px",
-};
+  const imageAndTextStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+  };
+
+  const image2Style = {
+    maxWidth: isMobile ? "90%" : "100%",
+    width: "400px", 
+    height: "250px", 
+    objectFit: "cover",
+    borderRadius: "15px",
+  };
 
   return (
     <>
@@ -103,15 +111,17 @@ const image2Style = {
       </div>
       <img src={bannerImage} alt="imgan vintage" style={imageStyle} />
     </div>
-          <div style={textContainer2Style}>
-        <h2>Este es mi segundo contenedor</h2>
-        <p>Aquí puedes agregar más contenido, como texto, imágenes o otros componentes.</p>
-      </div>
-      <div Styel={contenedor2}>
+      <div style={contenedor2}>
+        <div style={imageAndTextStyle}>
           <img src={image2} alt="imagen2" style={image2Style} />
+          <p>Esta es una descripción para la primera imagen.</p>
+        </div>
+        <div style={imageAndTextStyle}>
           <img src={image1} alt="imagen1" style={image2Style} />
+          <p>Esta es una descripción para la segunda imagen.</p>
+        </div>
       </div>
-     </>
+    </>
   );
 }
 
